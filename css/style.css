@@ -27,7 +27,7 @@ a {
 
 .away {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: #212529;
   z-index: 11;
   position: absolute;
@@ -64,6 +64,7 @@ h5 {
   background-color: #151c25;
   height: 100vh;
   z-index: 10;
+  overflow: overlay;
 }
 
 .sidebar .logo {
@@ -98,7 +99,12 @@ h5 {
   padding: 3rem 2rem;
 }
 
-.sidebar a {
+.sidebar .content li {
+  -webkit-transform: translateX(-500px);
+          transform: translateX(-500px);
+}
+
+.sidebar .content li a {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   height: 60px;
@@ -115,11 +121,11 @@ h5 {
   text-decoration: none;
 }
 
-.sidebar a p {
+.sidebar .content li a p {
   margin: 0;
 }
 
-.sidebar a i {
+.sidebar .content li a i {
   width: 60px;
   background: #222831;
   height: 60px;
@@ -165,31 +171,31 @@ h5 {
   z-index: 2;
 }
 
-.myself {
+#myself {
   background: url(..//img/banner.jpg);
   background-position: center;
   padding: 200px 0;
   text-transform: uppercase;
 }
 
-.myself h1 span {
+#myself h1 span {
   color: #55e6a5;
   font-weight: 800;
 }
 
-.myself a {
+#myself a {
   padding: 1rem 3rem;
   background-color: #55e6a5;
   color: #02050a;
 }
 
-.myself a:hover {
+#myself a:hover {
   background: #212529;
   color: #ffffff;
   text-decoration: none;
 }
 
-.myself p {
+#myself p {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.7;
@@ -197,12 +203,12 @@ h5 {
   color: #a2a2a2;
 }
 
-.myself img {
+#myself img {
   width: 100%;
   border-radius: 60px;
 }
 
-.myself .img-bord {
+#myself .img-bord {
   position: absolute;
   top: -17px;
   left: 0;
@@ -331,29 +337,43 @@ h5 {
 }
 
 #contact {
-  background-color: #02050a;
+  background-color: #09101a;
+  padding: 4rem 0;
 }
 
 #contact .box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 4rem 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 100%;
 }
 
-#contact .box .text {
-  padding-left: 1rem;
-}
-
-#contact .box .text p {
+#contact .box p {
   display: inline-block;
 }
 
-#contact .box .text a {
+#contact .box a {
   color: #ffffff;
+  -webkit-transition: all 0.1s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 0.1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-#contact .box .text a:hover {
+#contact .box a i {
+  padding-right: 6px;
+  -webkit-transition: all 0.1s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 0.1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#contact .box a:hover {
   color: #55e6a5;
   text-decoration: none;
 }
@@ -442,6 +462,13 @@ h5 {
   }
 }
 
+@media only screen and (max-width: 756px) {
+  #contact .box {
+    text-align: center;
+    padding-top: 1rem;
+  }
+}
+
 @media only screen and (max-width: 480px) {
   * {
     text-align: center;
@@ -451,20 +478,6 @@ h5 {
   }
   #about .box {
     margin-top: 40px;
-  }
-  #contact {
-    background-color: #02050a;
-  }
-  #contact .box {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: column;
-            flex-flow: column;
-    text-align: center;
-  }
-  #contact .box .text {
-    padding-left: 0;
-    padding-top: 1rem;
   }
   #project img {
     width: 200px;

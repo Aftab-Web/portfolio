@@ -45,7 +45,7 @@ a{
 }
 .away{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background: $body-color;
     z-index: 11;
     position: absolute;
@@ -79,6 +79,8 @@ h5{
     background-color: $logo-bg;
     height: 100vh;
     z-index: 10;
+    overflow: overlay;
+
 
     .logo{
         height: 100px;
@@ -103,30 +105,33 @@ h5{
     }
     .content{
         padding: 3rem 2rem;
-    }
-    a{
-        width: 100%;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        height: 60px;
-        display: flex;
-        align-items: center;
-        margin-top: 30px;
-        color: $colorWhite;
-        text-transform: capitalize;
-        border-radius: 8px;
-        text-decoration: none;
-        p{
-            margin: 0;
-        }
-        i{
-            width: 60px;
-            background: #222831;
-            height: 60px;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
+        li{
+            transform: translateX(-500px);
+            a{
+                width: 100%;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                height: 60px;
+                display: flex;
+                align-items: center;
+                margin-top: 30px;
+                color: $colorWhite;
+                text-transform: capitalize;
+                border-radius: 8px;
+                text-decoration: none;
+                p{
+                    margin: 0;
+                }
+                i{
+                    width: 60px;
+                    background: #222831;
+                    height: 60px;
+                    font-size: 1.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 8px;
+                }
+            }
         }
     }
 }
@@ -152,7 +157,7 @@ h5{
     left: 10px;
     z-index: 2;
 }
-.myself{
+#myself{
     background: url(..//img/banner.jpg);
     background-position: center;
     padding: 200px 0;
@@ -294,22 +299,29 @@ h5{
 
 
 #contact{
-    background-color: $colorBlack;
+    background-color: $bgColor;
+    padding: 4rem 0;
     .box{
         display: flex;
-        padding: 4rem 0;
-        .text{
-            padding-left: 1rem;
-            p{
-                display: inline-block;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 100%;
+        p{
+            display: inline-block;
+        }
+        a{
+            color: $colorWhite;
+            transition: all .1s cubic-bezier(0.19, 1, 0.22, 1);
+            i{
+                padding-right: 6px;
+                transition: all .1s cubic-bezier(0.19, 1, 0.22, 1);
+
             }
-            a{
-                color: $colorWhite;
-            }
-            a:hover{
-                color: $colorPrimary;
-                text-decoration: none;
-            }
+        }
+        a:hover{
+            color: $colorPrimary;
+            text-decoration: none;
         }
         .icon{
             svg{
@@ -387,6 +399,15 @@ h5{
         }
     }
 }
+@media only screen and (max-width:756px){
+    #contact{
+        .box{
+            text-align: center;
+            padding-top: 1rem;
+        }
+    }
+    
+}
 @media only screen and (max-width:480px){
     *{
         text-align: center;
@@ -399,17 +420,7 @@ h5{
             margin-top: 40px;
         }
     }
-    #contact{
-        background-color: $colorBlack;
-        .box{
-            flex-flow: column;
-            text-align: center;
-            .text{
-                padding-left: 0;
-                padding-top: 1rem;
-            }
-        }
-    }
+
     #project{
         img{
             width: 200px;

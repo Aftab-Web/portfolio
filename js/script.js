@@ -5,12 +5,18 @@ tl.to('.away',{
     height:0,
     duration: .3,
 })
+tl.from(".content ul li",{
+    x: 0,
+    duration: 0.6,
+    delay: 2000
+})
 tl.from(".t-ab",{
     scale:1.3,
     duration:1,
     yoyo: true,
     repeat:-1
 })
+
 tl.to('.fill',{
     width: '75%',
     duration: .5,
